@@ -1,4 +1,4 @@
-package StreamApi;
+package LambdaFunction;
 
 
 import java.util.Objects;

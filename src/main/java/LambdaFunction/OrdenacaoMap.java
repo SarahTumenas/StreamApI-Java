@@ -1,4 +1,4 @@
-package StreamApi.Refatoracao;
+package LambdaFunction;
 /*
 Dadas as seguintes informações de id e contato, crie um dicionario e
 o ordene, exibindo (Nome id - Nome contato):
@@ -7,14 +7,10 @@ id = 3 - Contato = nome: Cami, numero : 5555;
 id = 1 - Contato = nome: Jon, numero : 1111;
  */
 
-import StreamApi.ComparatorOrdemNomeContato;
-import StreamApi.ComparatorOrdemNumerica;
-import StreamApi.Contato;
-
 import java.util.*;
-import java.util.function.Function;
 
-public class RefatoracaoOrdenacaoMap {
+public class OrdenacaoMap {
+
     public static void main(String[] args) {
 
         System.out.println("--\tOrdem aleatória\t--");
@@ -63,27 +59,9 @@ public class RefatoracaoOrdenacaoMap {
         }
 
         System.out.println("--\tOrdem número telefone\t--");
-        //precisamos organizar os valores.
-        /*
-        Set<Map.Entry<Integer, Contato>> set = new TreeSet<>(new Comparator<Map.Entry<Integer, Contato>>() {
-            @Override
-            public int compare(Map.Entry<Integer, Contato> cont1, Map.Entry<Integer, Contato> cont2) {
-                return Integer.compare(cont1.getValue().getNumero(),cont2.getValue().getNumero());
-            }
-        });
+        //precisamos organizar os valores. Logo:
+        Set<Map.Entry<Integer, Contato>> set = new TreeSet<>(new ComparatorOrdemNumerica());
 
-         Set<Map.Entry<Integer, Contato>> set = new TreeSet<>(Comparator.comparing
-                (new Function<Map.Entry<Integer, Contato>, Integer>() {
-                    @Override
-                    public Integer apply(Map.Entry<Integer, Contato> cont) {
-                        return cont.getValue().getNumero();
-                    }
-                }));
-        */
-
-
-        Set<Map.Entry<Integer, Contato>> set = new TreeSet<>(Comparator.comparing(cont -> cont.getValue().getNumero()));
-        //ordem
         set.addAll(agenda.entrySet());
 
         for (Map.Entry<Integer, Contato> entry: set) {
@@ -92,12 +70,9 @@ public class RefatoracaoOrdenacaoMap {
                     ": " +entry.getValue().getNome());
         }
 
-
-
-
         System.out.println("--\tOrdem nome contato\t--");
-
-        Set<Map.Entry<Integer, Contato>> set1 = new TreeSet<>( Comparator.comparing(cont -> cont.getValue().getNome()));
+        //precisamos organizar os valores. Logo:
+        Set<Map.Entry<Integer, Contato>> set1 = new TreeSet<>(new ComparatorOrdemNomeContato());
 
         set1.addAll(agenda.entrySet());
 
@@ -107,3 +82,5 @@ public class RefatoracaoOrdenacaoMap {
         }
     }
 }
+
+
