@@ -9,7 +9,7 @@ id = 1 - Contato = nome: Jon, numero : 1111;
 
 import java.util.*;
 
-public class RefatoracaoOrdenacaoMap {
+public class OrdenacaoMap {
 
     public static void main(String[] args) {
 

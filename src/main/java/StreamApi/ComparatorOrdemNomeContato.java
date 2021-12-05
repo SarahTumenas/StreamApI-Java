@@ -3,7 +3,7 @@ package StreamApi;
 import java.util.Comparator;
 import java.util.Map;
 
-class ComparatorOrdemNomeContato implements Comparator<Map.Entry<Integer, Contato>> {
+public class ComparatorOrdemNomeContato implements Comparator<Map.Entry<Integer, Contato>> {
 
     @Override
 
