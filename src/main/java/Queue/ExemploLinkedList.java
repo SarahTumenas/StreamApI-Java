@@ -55,6 +55,13 @@ public class ExemploLinkedList {
 
         System.out.println(filaBanco.isEmpty());
 
+        filaBanco.add("Maria");
+
+        System.out.println(filaBanco);
+
+        System.out.println(filaBanco.contains("Maria"));
+
+
 
     }
 }
